@@ -73,7 +73,6 @@ jobs:
     - name: SSH远程连接服务器配置固件
       uses: csexton/debugger-action@master
 
-
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
