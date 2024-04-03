@@ -70,6 +70,10 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
+    - name: SSH远程连接服务器配置固件
+      uses: csexton/debugger-action@master
+
+
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
@@ -77,9 +81,6 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-       
-    - name: SSH远程连接服务器配置固件
-      uses: csexton/debugger-action@master
 
     - name: Download package
       id: package
